@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Metin Özetleyici</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(to right, #1e1e1e, #2c2c2c);
+      color: #f1f1f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #00c3ff;
+      text-shadow: 0 0 10px rgba(0, 195, 255, 0.6);
+    }
+
+    form {
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 195, 255, 0.15);
+      max-width: 800px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    textarea {
+      width: 100%;
+      background-color: #2d2d2d;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 15px;
+      font-size: 1rem;
+      border-radius: 8px;
+      resize: vertical;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #00c3ff;
+      color: #000;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #00a8dd;
+      transform: scale(1.03);
+    }
+
+    .output {
+      background-color: #222;
+      margin-top: 30px;
+      padding: 20px;
+      border-left: 6px solid #00c3ff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 195, 255, 0.2);
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .output strong {
+      color: #00c3ff;
+      font-size: 1.2rem;
+    }
+
+    .output p {
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Metin Özetleyici</h1>
+
+  <form method="POST">
+    <label for="input_text">Metni Gir:</label>
+    <textarea name="input_text" id="input_text" rows="10" placeholder="Buraya metni yaz..."></textarea>
+    <button type="submit">Özetle</button>
+  </form>
+
+  {% if summary %}
+    <div class="output">
+      <strong> Özet:</strong>
+      <p>{{ summary }}</p>
+    </div>
+  {% endif %}
+</body>
+</html>
